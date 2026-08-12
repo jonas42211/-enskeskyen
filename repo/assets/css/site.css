@@ -1,4 +1,54 @@
-body{
-    
-    background-color: brown;
+.btn {
+background-color: transparent;
+  border: none; 
+  color: red;
+  cursor: pointer;
+  height: auto;
 }
+
+#list-item-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+#ips {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    text-align: center;
+    }
+
+#ip {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+    width: 60%;
+    }
+
+    #list-item-p {
+    font-size: 40px;
+    color: #333;
+    margin: 0;
+    }
+
+    #header {
+    font-size: 80px;
+    color: #333;
+    text-align: center;
+    margin-top: 50px;
+    }
+
+
+    .fa-trash {
+   
+}
+
