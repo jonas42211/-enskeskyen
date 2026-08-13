@@ -17,8 +17,7 @@ function renderItems() {
     const div = document.createElement('div');
     const p = document.createElement('p');
     p.textContent = item;
-    p.id = 'list-item-p';
-    div.id = 'list-item-div';
+    div.className = 'list-item-div';
     div.appendChild(p);
     listSection.appendChild(div);
 
@@ -101,19 +100,18 @@ function readerStatic(appID) {
 // Create and append the headline
   const myHeadLine = document.createElement('h1');
   myHeadLine.innerText = 'Ønske List';
-  myHeadLine.id = 'header';
+  myHeadLine.className = 'header';
   appContainer.appendChild(myHeadLine);
 // Create and append the input section with an input field and an add button
   const inputSection = document.createElement('section');
   const input = document.createElement('input');
-  inputSection.id = 'ips';
-  input.id = 'ip';
+  inputSection.className = 'input-s';
+
   appContainer.appendChild(inputSection);
   inputSection.appendChild(input);
 // Create and append the add button
   const addbutton = document.createElement('button');
   addbutton.innerText = 'add';
-  addbutton.id = 'abtn';
   inputSection.appendChild(addbutton);
 // Create and append the list section
   const listsection = document.createElement('section');
@@ -125,14 +123,7 @@ function readerStatic(appID) {
   // #region Add event listeners to the static elements of the app
  
     //add event listener to the add button to add items to the list
-    addbutton.addEventListener('click', () => {
-      const value = input.value.trim();
-  // Check if the input value is not empty before adding the item
-      if (value) {
-        addItem(value);
-        input.value = '';
-      }
-    });
+    addEventcallback(input, addbutton);
   
   // #endregion
 
@@ -147,7 +138,16 @@ function readerStatic(appID) {
        renderItems();
   }
 
-
+function addEventcallback(input, addbutton) {
+  addbutton.addEventListener('click', () => {
+    const value = input.value.trim();
+    // Check if the input value is not empty before adding the item
+    if (value) {
+      addItem(value);
+      input.value = '';
+    }
+  });
+}
 
 
 readerStatic('appID');
