@@ -1,30 +1,25 @@
-.btn {
-background-color: transparent;
-  border: none; 
-  color: red;
-  cursor: pointer;
-  height: auto;
+/*#region main styles */
+
+
+/* Style for the header */
+
+.header {
+  font-size: 80px;
+  color: #333;
+  text-align: center;
+  margin-top: 50px;
 }
 
-.list-item-div {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
+/* Style for the input section and its elements */
 
 .input-s {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 100px;
-    text-align: center;
-    }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  text-align: center;
+}
 
 .input-s input {
   font-size: 20px;
@@ -32,28 +27,61 @@ background-color: transparent;
   color: #333;
   margin-right: 10px;
   width: 60%;
+}
+
+
+/* hover effects for the add button and color */
+.input-s button {
+  position: relative;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  color: #fff;
+  background: linear-gradient(90deg, #ff0040, #00ff9d, #0040ff);
+  background-size: 300% 300%;
+  animation: rgbShift 6s linear infinite, glow 2.5s ease-in-out infinite;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  outline: none;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.input-s button:hover {
+  transform: translateY(-3px);
+    filter: brightness(1.05);
+  }
+  
+  @keyframes rgbShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 8px rgba(255,0,64,0.5), 0 0 20px rgba(0,255,157,0.25), 0 0 40px rgba(0,64,255,0.15); }
+    50% { box-shadow: 0 0 20px rgba(255,0,64,0.9), 0 0 40px rgba(0,255,157,0.55), 0 0 80px rgba(0,64,255,0.35); }
   }
 
-    .list-item-div p {
-    font-size: 40px;
-    color: #333;
-    margin: 0;
-    }
+/*#endregion main */
 
-    .header {
-    font-size: 80px;
-    text-align: center;
-    margin-top: 50px;
-    }
 
-.header {
-    font-size: 80px;
-    color: #333;
-    text-align: center;
-    margin-top: 50px;
-    }
+  /*#region List Section Styles */
 
-/* Keep animated icon and add-button styles */
+/* Style for the list section and its elements */
+.list-item-div {
+  display: flex;
+  align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .list-item-div p {
+      font-size: 40px;
+      color: #333;
+      margin: 0;
+    }
+/* Add some hover effects for the trash icon */
 .fa-trash {
   color: #fff;
   font-size: 1.8rem;
@@ -68,32 +96,11 @@ background-color: transparent;
   100% { color: #0040ff; transform: rotate(0deg) scale(1); }
 }
 
-.input-s button {
-  position: relative;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  color: #fff;
-  background: linear-gradient(90deg, #ff0040, #00ff9d, #0040ff);
-  background-size: 300% 300%;
-  animation: rgbShift 6s linear infinite, glow 2.5s ease-in-out infinite;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-  outline: none;
-  transition: transform 150ms ease, filter 150ms ease;
+.btn {
+background-color: transparent;
+  border: none; 
+  color: red;
+  cursor: pointer;
+  height: auto;
 }
-
-.abtn:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.05);
-}
-
-@keyframes rgbShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 8px rgba(255,0,64,0.5), 0 0 20px rgba(0,255,157,0.25), 0 0 40px rgba(0,64,255,0.15); }
-  50% { box-shadow: 0 0 20px rgba(255,0,64,0.9), 0 0 40px rgba(0,255,157,0.55), 0 0 80px rgba(0,64,255,0.35); }
-}
-
+/*#endregion List Section Styles */
