@@ -62,6 +62,100 @@
 
 /*#endregion main */
 
+.login-box {
+  width: min(90%, 360px);
+  position: relative;
+  margin: 90px auto;
+  padding: 32px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+  background: #17122d;
+  border: 2px solid #ff36c7;
+  border-radius: 18px;
+  box-shadow: 0 0 18px #ff36c7, 0 0 45px rgba(0, 229, 255, 0.7);
+  animation: discoGlow 2.5s ease-in-out infinite alternate;
+}
+
+.login-title {
+  position: relative;
+  margin: 0 0 24px;
+  color: #fff36b;
+  font-size: 32px;
+  text-shadow: 0 0 8px #ff36c7, 0 0 20px #00e5ff;
+}
+
+.login-input {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+  padding: 12px;
+  box-sizing: border-box;
+  border: 2px solid #00e5ff;
+  border-radius: 8px;
+  color: #ffffff;
+  background: #241c45;
+  font-size: 16px;
+}
+
+.login-input:focus {
+  border-color: #fff36b;
+  outline: 2px solid rgba(255, 54, 199, 0.45);
+  box-shadow: 0 0 12px #00e5ff;
+}
+
+.login-button {
+  position: relative;
+  width: 100%;
+  margin-top: 8px;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  color: #ffffff;
+  background: #ff36c7;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  text-shadow: 0 0 6px #17122d;
+  box-shadow: 0 0 12px #ff36c7;
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+.login-button:hover {
+  background: #00cfff;
+  transform: scale(1.03);
+}
+
+.login-message {
+  position: relative;
+  min-height: 20px;
+  margin: 16px 0 0;
+  color: #ff8be5;
+}
+
+.login-box::before {
+  content: '';
+  position: absolute;
+  top: -58px;
+  right: 24px;
+  width: 42px;
+  height: 42px;
+  border: 5px dotted #fff36b;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #fff36b, 0 0 22px #ff36c7;
+  animation: discoSpin 3s linear infinite;
+}
+
+@keyframes discoGlow {
+  from { border-color: #ff36c7; }
+  to { border-color: #00e5ff; }
+}
+
+@keyframes discoSpin {
+  to { transform: rotate(360deg); }
+}
+
 
   /*#region List Section Styles */
 
