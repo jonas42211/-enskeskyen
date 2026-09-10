@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ønskeskyen | Find ønsker</title>
+    <link rel="shortcut icon" href="assets/img/download.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<nav class="site-nav" aria-label="Hovednavigation">
+    <a class="brand" href="index.html">Ønskeskyen</a>
+    <div class="nav-links">
+        <a class="nav-link" href="index.html">Min liste</a>
+        <a class="nav-link active" href="items.html">Find ønsker</a>
+    </div>
+</nav>
+
+<main class="products-page">
+    <header class="page-heading">
+        <p class="eyebrow">Inspiration til din liste</p>
+        <h1>Find noget at ønske sig</h1>
+    </header>
+
+    <section class="product-tools" aria-label="Produktfiltre">
+        <label for="category-filter">Kategori</label>
+        <select id="category-filter">
+            <option value="">Alle kategorier</option>
+        </select>
+    </section>
+
+    <p id="products-status" class="products-status" role="status">Henter produkter...</p>
+    <section id="product-list" class="product-grid" aria-live="polite"></section>
+</main>
+
+<script src="assets/java/items.js"></script>
+</body>
+</html>

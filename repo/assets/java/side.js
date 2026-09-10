@@ -1,4 +1,4 @@
-﻿let items = [];
+﻿let items = JSON.parse(localStorage.getItem('wishlistItems') || '[]');
 
 
 // Function to render the items in the list
@@ -12,6 +12,11 @@ function renderItems() {
 
   listSection.innerHTML = '';
 
+
+  if (items.length === 0) {
+    listSection.innerHTML = '<p class="empty-list">Din liste er tom. Find inspiration på siden med ønsker.</p>';
+    return;
+  }
 
   items.forEach((item, index) => {
     const div = document.createElement('div');
@@ -30,7 +35,7 @@ function renderItems() {
     div.appendChild(removeButton);
 
 const icon = document.createElement('i');
-icon.className = 'fa fa-trash fa-5x';
+icon.className = 'fa fa-trash fa-1x';
 removeButton.appendChild(icon);
   });
 }
@@ -49,6 +54,7 @@ function addItem(name) {
   }
 
   items.push(name);
+  localStorage.setItem('wishlistItems', JSON.stringify(items));
   renderItems();
   return 'ok';
 }
@@ -66,12 +72,14 @@ function listItems(index) {
 // update item in the list by name
 function updateItem(oldName, newName) {
   items = items.map(item => item === oldName ? newName : item);
+  localStorage.setItem('wishlistItems', JSON.stringify(items));
   renderItems();
   return 'ok';
 }
 // remove item from the list by name
 function removeItem(name) {
   items = items.filter(item => item !== name);
+  localStorage.setItem('wishlistItems', JSON.stringify(items));
   renderItems();
   return 'ok';
 }
@@ -84,6 +92,7 @@ function removeItemAt(index) {
   }
   
   items.splice(index, 1);
+  localStorage.setItem('wishlistItems', JSON.stringify(items));
   renderItems();
   return 'ok';
 }
@@ -99,12 +108,14 @@ function readerStatic(appID) {
   // #region Create and append the static elements of the app
   // Create and append the headline
   const myHeadLine = document.createElement('h1');
-  myHeadLine.innerText = 'Ønske List';
+  myHeadLine.innerText = 'Min ønskeliste';
   myHeadLine.className = 'header';
   appContainer.appendChild(myHeadLine);
   // Create and append the input section with an input field and an add button
   const inputSection = document.createElement('section');
   const input = document.createElement('input');
+  input.placeholder = 'Skriv et ønske...';
+  input.setAttribute('aria-label', 'Nyt ønske');
   inputSection.className = 'input-s';
   
   appContainer.appendChild(inputSection);
@@ -126,8 +137,6 @@ function readerStatic(appID) {
   addEventcallback(input, addbutton);
   
   // #endregion
-  
-  validateSimple()
   
   renderItems();
 }
