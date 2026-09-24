@@ -1,7 +1,7 @@
 // ========== MODEL ==========
 const model = {
     allProducts: [],
-    
+    // Hent produkter fra API'et
     async fetchProducts() {
         const res = await fetch('https://dummyjson.com/products');
         if (!res.ok) throw new Error('Kunne ikke hente produkter');
@@ -9,11 +9,11 @@ const model = {
         this.allProducts = data.products;
         return this.allProducts;
     },
-    
+    // Hent unikke kategorier fra produkterne
     getCategories() {
         return [...new Set(this.allProducts.map(p => p.category))].sort();
     },
-    
+    // Filtrer produkter efter kategori
     filterByCategory(category) {
         if (!category) return this.allProducts;
         return this.allProducts.filter(p => p.category === category);
@@ -21,6 +21,7 @@ const model = {
 };
 
 // ========== VIEW ==========
+// Render produkter og kategorier
 const view = {
     renderProducts(products) {
         const productList = document.getElementById("product-list");
@@ -57,7 +58,6 @@ const view = {
             productList.append(card);
         });
     },
-    
     populateCategories(categories) {
         const select = document.getElementById("category-filter");
         categories.forEach(category => {
@@ -71,6 +71,7 @@ const view = {
 
 // ========== CONTROLLER ==========
 const controller = {
+    // Hent produkter og render dem
     async init() {
         try {
             await model.fetchProducts();
@@ -78,11 +79,12 @@ const controller = {
             view.renderProducts(model.allProducts);
             this.setupFilterListener();
         } catch (error) {
+            // Vis en fejlmeddelelse, hvis produkterne ikke kan hentes
             document.getElementById("products-status").textContent = "Produkterne kunne ikke hentes lige nu.";
             console.error(error);
         }
     },
-    
+    // Opsæt event listener for filter dropdown
     setupFilterListener() {
         const select = document.getElementById("category-filter");
         select.addEventListener("change", (e) => {
